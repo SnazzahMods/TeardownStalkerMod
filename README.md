@@ -1,13 +1,23 @@
-# Teardown Stalker Mod
-An ominous figure is following you relentlessly. Do not get caught.
+# [Teardown Stalker Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2530711171)
+
+A threatening figure chases you relentlessly across the map.
+
+You must be diligent and constantly active to avoid demise.
+
+Keep moving. Do not get caught.
 
 This was originally going to be an effect for [Teardown-Chaos-Mod](https://github.com/NLferdiNL/Teardown-Chaos-Mod), but now its a mod.
-
 ## Features
-- 6 modifiers
-- Multiple sprites and sounds
+- 6 modifiers: Invisible, Silent, Destructive, Terrible Fog, Rushed Out, Swift Killer
+- Stalker sprite customization
+- Stalker Sound loop customization
 
-### Credits
+## Installation
+Subscribe to the [Workshop Item](https://steamcommunity.com/sharedfiles/filedetails/?id=2530711171) and restart the game.
+
+You can also clone this repo locally into `%USERPROFILE%\Documents\Teardown\mods` and edit from there.
+
+## Credits
 #### Sprites
 - stalkers/default.png - http://www.pngall.com/demon-png/download/9428
 #### Sounds

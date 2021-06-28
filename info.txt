@@ -1,0 +1,4 @@
+name = Stalker Mod
+author = Snazzah
+description = An ominous figure chases you relentlessly. Do not get caught.
+tags = Gameplay

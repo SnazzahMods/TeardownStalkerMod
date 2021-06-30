@@ -13,7 +13,7 @@ This was originally going to be an effect for [Teardown-Chaos-Mod](https://githu
 - Stalker Sound loop customization
 
 ## Installation
-Subscribe to the [Workshop Item](https://steamcommunity.com/sharedfiles/filedetails/?id=2530711171) and restart the game.
+Subscribe to the [Workshop Item](https://steamcommunity.com/sharedfiles/filedetails/?id=2530711171) and go to `Play > Mods`.
 
 You can also clone this repo locally into `%USERPROFILE%\Documents\Teardown\mods` and edit from there.
 

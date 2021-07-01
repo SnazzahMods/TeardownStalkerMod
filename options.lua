@@ -303,7 +303,7 @@ function draw()
 			if isEffectOn then
 				UiButtonImageBox("ui/common/box-solid-4.png", 4, 4, 0.15, 0.68, 0.38)
 				UiColor(1, 1, 1)
-				button = UiImageButton("ui/terminal/checkmark.png", 50, 50)
+				button = UiImageButton("MOD/ui/check.png", 50, 50)
 				btnSound = "MOD/ui/off.ogg"
 			else
 				UiButtonImageBox("ui/common/box-solid-4.png", 4, 4)

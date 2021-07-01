@@ -189,6 +189,16 @@
 		title = "SM64 1Up"
 	})
 
+	table.insert(sounds, {
+		file = "eateot",
+		title = "Burning Memory"
+	})
+
+	table.insert(sounds, {
+		file = "doom",
+		title = "DOOM"
+	})
+
 	function updateSound()
 		local sound = sounds[soundIndex]
 		if sound == nil then return end

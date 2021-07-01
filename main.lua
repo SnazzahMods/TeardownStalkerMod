@@ -93,7 +93,7 @@ function tick(dt)
 
 	-- Background Loop
 	if figureSpawned and not disableMod then
-		PlayLoop(spawnLoop, cameraPos, 0.5)
+		PlayLoop(spawnLoop, cameraPos, 0.3)
 	else
 		PlayLoop(droneLoop, cameraPos, 0.5)
 	end

@@ -67,6 +67,7 @@ function init()
 	-- Set position
 	local playerPos = GetPlayerTransform().pos
 	playerPos[2] = playerPos[2] + 1
+	playerPos = VecAdd(playerPos, Vec(math.random(-1000, 1000)))
 	figurePos = playerPos
 end
 

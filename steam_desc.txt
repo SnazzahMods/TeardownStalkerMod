@@ -1,0 +1,14 @@
+A threatening figure chases you relentlessly across the map.
+You must be diligent and constantly active to avoid demise.
+Keep moving. Do not get caught.
+
+[h1]Features[/h1]
+- 6 modifiers: Invisible, Silent, Destructive, Terrible Fog, Rushed Out, Swift Killer
+- Stalker sprite customization
+- Stalker sound loop customization
+
+[h1]Information[/h1]
+Open the mod's options for more customization and challenges.
+Press [b]CTRL+H[/b] for the Debug menu.
+The mod is automatically disabled in the Campaign and About level.
+Contribute to the mod here: https://github.com/Snazzah/TeardownStalkerMod

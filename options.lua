@@ -206,6 +206,34 @@
 	end
 --#endregion
 
+--#region extraoptions
+	local extraOptions = {}
+
+	table.insert(extraOptions, {
+		title = "Play Music",
+		getValue = function()
+			return playBGMusic
+		end,
+		click = function(newVal)
+			if newVal == nil then newVal = not playBGMusic end
+			SetBool(moddataPrefix .. "BGMusic", newVal)
+			playBGMusic = newVal
+		end
+	})
+
+	table.insert(extraOptions, {
+		title = "Render Fog",
+		getValue = function()
+			return renderFog
+		end,
+		click = function(newVal)
+			if newVal == nil then newVal = not renderFog end
+			SetBool(moddataPrefix .. "RenderFog", newVal)
+			renderFog = newVal
+		end
+	})
+--#endregion
+
 animTime = 0
 local playingLoop = false
 
@@ -286,9 +314,9 @@ function draw()
 	-- Modifiers
 	UiPush()
 		windowWidth = 400
-		windowHeight = 600
+		windowHeight = 700
 		UiAlign("top left")
-		UiTranslate(UiCenter() - (windowWidth + 20) - (1 - animTime) * 100, UiMiddle() - (windowHeight/2))
+		UiTranslate(UiCenter() - (windowWidth + 20) - (1 - animTime) * 100, UiMiddle() - (windowHeight/2) + 30)
 		createPanel(windowWidth, windowHeight, animTime/2)
 
 		-- Title
@@ -349,8 +377,6 @@ function draw()
 			UiTranslate(-60, math.min(60, h + 10))
 		end
 
-		UiTranslate(0, 40)
-
 		UiFont("regular.ttf", 26)
 		UiColor(1, 1, 1)
 		UiButtonImageBox("ui/common/box-outline-6.png", 6, 6)
@@ -375,7 +401,40 @@ function draw()
 			end
 		end
 
-		-- UiTranslate(-220, 60)
+		UiTranslate(-180, 90)
+
+		for i=1, #extraOptions do
+			local opt = extraOptions[i]
+			local optOn = opt.getValue()
+
+			local button = false
+			local btnSound
+			local w, h
+
+			if optOn then
+				UiButtonImageBox("ui/common/box-solid-4.png", 4, 4, 0.15, 0.68, 0.38)
+				UiColor(1, 1, 1)
+				btnSound = "MOD/ui/off.ogg"
+			else
+				UiButtonImageBox("ui/common/box-solid-4.png", 4, 4)
+				UiColor(1, 0.25, 0.25)
+				btnSound = "MOD/ui/on.ogg"
+			end
+
+			if UiBlankButton(30, 30) then
+				UiSound(btnSound)
+				opt.click()
+			end
+
+			UiColor(1, 1, 1)
+
+			UiTranslate(35, 3)
+			UiFont("regular.ttf", 25)
+			w, h = UiGetTextSize(opt.title)
+			UiText(opt.title)
+
+			UiTranslate(-35, 37)
+		end
 	UiPop()
 
 	-- Sprite

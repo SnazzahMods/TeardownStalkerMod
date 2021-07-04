@@ -35,10 +35,11 @@ figureSilent = false
 figureDestructive = false
 fogDifficult = false
 timeHalf = false
+playBGMusic = true
+renderFog = true
 
 -- FX variables
 heartbeatTimer = 0
-renderFog = true
 
 -- UI variables
 uiShowSpawnFX = false
@@ -92,10 +93,12 @@ function tick(dt)
 	end
 
 	-- Background Loop
-	if figureSpawned and not disableMod then
-		PlayLoop(spawnLoop, cameraPos, 0.3)
-	else
-		PlayLoop(droneLoop, cameraPos, 0.5)
+	if not disableMod and playBGMusic then
+		if figureSpawned  then
+			PlayLoop(spawnLoop, cameraPos, 0.3)
+		else
+			PlayLoop(droneLoop, cameraPos, 0.5)
+		end
 	end
 
 	-- Render Sprite
@@ -189,7 +192,7 @@ function tick(dt)
 	end
 
 	-- Debug Flip
-	if not renderFog or figurePaused then
+	if figurePaused then
 		debugFlip = true
 	end
 end

@@ -1,5 +1,5 @@
 moddataPrefix = "savegame.mod.stalkerMod"
-currentDataVersion = 1
+currentDataVersion = 2
 
 function migrateData()
 	dataVersion = GetInt(moddataPrefix .. "Version")
@@ -14,6 +14,11 @@ function migrateData()
 		SetBool(moddataPrefix .. "MoreSpeed", false)
 		SetString(moddataPrefix .. "Sprite", "default")
 		SetString(moddataPrefix .. "SoundLoop", "whisper")
+	end
+
+	if dataVersion < 2 then
+		SetBool(moddataPrefix .. "BGMusic", true)
+		SetBool(moddataPrefix .. "RenderFog", true)
 	end
 
 	SetInt(moddataPrefix .. "Version", currentDataVersion)
@@ -31,6 +36,8 @@ function dataInit()
 	figureMoreSpeed = GetBool(moddataPrefix .. "MoreSpeed")
 	figureSpriteFile = GetString(moddataPrefix .. "Sprite")
 	figureSoundFile = GetString(moddataPrefix .. "SoundLoop")
+	playBGMusic = GetBool(moddataPrefix .. "BGMusic")
+	renderFog = GetBool(moddataPrefix .. "RenderFog")
 
 	-- Apply Data
 	figureSpritePath = "MOD/sprites/stalkers/" .. figureSpriteFile .. ".png"
@@ -46,51 +53,51 @@ function dataInit()
 end
 
 --#region Vector Util
-function VecDirection(a, b)
-	return VecNormalize(VecSub(b, a))
-end
+	function VecDirection(a, b)
+		return VecNormalize(VecSub(b, a))
+	end
 
-function VecDistance(a, b)
-	local directionVector = VecSub(b, a)
-	local distance = VecMag(directionVector)
-	return distance
-end
+	function VecDistance(a, b)
+		local directionVector = VecSub(b, a)
+		local distance = VecMag(directionVector)
+		return distance
+	end
 
-function VecMag(a)
-	return math.sqrt(a[1]^2 + a[2]^2 + a[3]^2)
-end
+	function VecMag(a)
+		return math.sqrt(a[1]^2 + a[2]^2 + a[3]^2)
+	end
 
-function VecToString(vec)
-	return ToFixed(vec[1], 2) .. ", " .. ToFixed(vec[2], 2) .. ", " .. ToFixed(vec[3], 2)
-end
+	function VecToString(vec)
+		return ToFixed(vec[1], 2) .. ", " .. ToFixed(vec[2], 2) .. ", " .. ToFixed(vec[3], 2)
+	end
 --#endregion
 
  --#region Draw Util
-function fixedWidthText(txt, width)
-	if txt == "" then
-		return 0
-	else
-		UiPush()
-			local w, h = UiGetTextSize(txt)
-			local scale = width / w
-			UiScale(scale)
-			UiText(txt)
-		UiPop()
-		return h * scale
+	function fixedWidthText(txt, width)
+		if txt == "" then
+			return 0
+		else
+			UiPush()
+				local w, h = UiGetTextSize(txt)
+				local scale = width / w
+				UiScale(scale)
+				UiText(txt)
+			UiPop()
+			return h * scale
+		end
 	end
-end
 
-function fixedWidth(txt, width)
-	if txt == "" then
-		return 0
-	else
-		UiPush()
-			local w, h = UiGetTextSize(txt)
-			local scale = width / w
-		UiPop()
-		return h * scale
+	function fixedWidth(txt, width)
+		if txt == "" then
+			return 0
+		else
+			UiPush()
+				local w, h = UiGetTextSize(txt)
+				local scale = width / w
+			UiPop()
+			return h * scale
+		end
 	end
-end
 --#endregion
 
 -- http://stackoverflow.com/questions/1426954/ddg#7615129

@@ -13,9 +13,16 @@ function drawEffectsText()
 		UiText("Stalker Mod")
 		UiTranslate(0, 20)
 
-		UiColor(1, 1, 1, 0.75)
+		UiColor(1, 0.25, 0.25, 0.75)
 		UiFont("regular.ttf", 20)
 		UiTextShadow(0, 0, 0, 0.1, 1.0)
+
+		if not renderFog then
+			UiTranslate(0, 20)
+			UiText("Fog Disabled")
+		end
+
+		UiColor(1, 1, 1, 0.75)
 
 		if not figureVisible then
 			UiTranslate(0, 20)
@@ -32,7 +39,7 @@ function drawEffectsText()
 			UiText("Destructive")
 		end
 
-		if fogDifficult then
+		if fogDifficult and renderFog then
 			UiTranslate(0, 20)
 			UiText("Terrible Fog")
 		end
